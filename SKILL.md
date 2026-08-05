@@ -67,6 +67,8 @@ These hold for the entire run. Do not consult a reference for them — just do t
   step bumps it.
 - **Run dir pattern**: `data/marketing/runs/<YYYY-MM-DD-HHmm>-<address-slug>/`.
   All phase outputs go inside it.
+- **Never handle credentials.** Tokens and keys live in the environment. Never
+  ask for one in chat, never print one, never write one to a file in this skill.
 - **Product packaging**: this skill is sold to other realtors. Keep everything
   config-driven. No realtor specifics in script code or templates — they belong
   in `config/realtor.json`, `config/voice.json`, and `.env`.
@@ -137,12 +139,20 @@ Then write the answers to `config/realtor.json` — schema and field names are i
 `config/realtor.example.json`. Copy the logos into `assets/`. Read the whole
 config back in plain language and get a yes before continuing.
 
+**Never ask for a token, key, or password.** The env vars listed above are not
+Phase 0 questions and never appear in this conversation. If one is missing, name
+the variable, say where it comes from (Buffer Publish > Account > Apps, the
+Mailjet API keys page), and tell the realtor to put it in the host repo's `.env`
+or export it in her shell herself. Do not offer to store it, echo it back, or
+write it into any config file in this skill.
+
 **Then the two channel configs.** Copy `config/buffer-channels.example.json` and
 `config/mailjet-lists.example.json` to their non-example names and fill in real
-IDs. Buffer channel IDs come from `node scripts/schedule-buffer.js --list-channels`
-once `BUFFER_TOKEN` is set. Mailjet list IDs come from the Mailjet contacts UI.
-If either token is not available yet, write the file with the IDs blank, tell the
-realtor exactly which one is missing, and carry on — Phases 1-3 do not need them.
+IDs. These are channel and list IDs, not secrets. Buffer channel IDs come from
+`node scripts/schedule-buffer.js --list-channels` once the realtor has set
+`BUFFER_TOKEN` herself; Mailjet list IDs come from the Mailjet contacts UI. If a
+token is not set yet, write the file with the IDs blank, name the missing
+variable, and carry on — Phases 1 to 3 do not need it.
 
 **Then voice.** Copy `config/voice.example.json` to `config/voice.json`. The
 shipped defaults are generic and safe, but the copy is only as good as this file.
