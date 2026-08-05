@@ -39,6 +39,6 @@ I will be on-site the whole time. Come say hi, bring a friend who is house-hunti
 {{agent_email}}
 {{agent_website}}
 
-You are receiving this because you asked to hear about new listings in the BC Interior.
+You are receiving this because you asked to hear about new listings in {{service_area}}.
 Unsubscribe: [[UNSUB_LINK]]
 {{footer_location}}

@@ -115,24 +115,30 @@ the realtor can rapid-fire answer. Re-ask only what comes back missing.
 
 **Contact**
 6. Email, phone, and website
+7. Service area, as she would say it out loud ("Vancouver and the Lower
+   Mainland") — it goes in the email footer
+8. Her market's timezone as an IANA name (America/Toronto, America/Denver,
+   Australia/Sydney). Every scheduled post and email time is local to this, so
+   getting it wrong sends the whole campaign at the wrong hour. Infer it from
+   her city and read it back to confirm.
 
 **Branding**
-7. Logo files — light/white version for dark backgrounds, dark/black version for
+9. Logo files — light/white version for dark backgrounds, dark/black version for
    light backgrounds. Accept local paths, Drive links, or public URLs. Copy them
    into `assets/logo-light.png` and `assets/logo-dark.png`. If only one exists,
    use it for both.
-8. Brand colors — primary and accent, as hex. If she does not know them, pull
+10. Brand colors — primary and accent, as hex. If she does not know them, pull
    them off the logo and read the values back for confirmation. Neutrals (text,
    muted, surface, border) default to a warm grey set and only need changing if
    she has opinions about them.
-9. Fonts — a heading face and a body face. Default is Georgia + Helvetica, which
+11. Fonts — a heading face and a body face. Default is Georgia + Helvetica, which
    render everywhere with no webfont fetch. If she names Google Fonts instead,
    set `branding.google_fonts` to true so the templates load them, and check she
    is actually licensed for them.
 
 **Social and publishing**
-10. Instagram handle plus 1-2 brand hashtags
-11. The Google Drive folder her listing folders live under — graphics get staged
+12. Instagram handle plus 1-2 brand hashtags
+13. The Google Drive folder her listing folders live under — graphics get staged
     there. Ask for the folder link and take the ID out of it yourself.
 
 Then write the answers to `config/realtor.json` — schema and field names are in
@@ -224,8 +230,9 @@ else to add?" block. Accept natural-language answers, no strict formats.
   lowercasing + replacing non-alphanumeric with `-`.
 - **Price**: Strip `$` and `,`, parse int, reformat as `$NNN,NNN`. Invalid
   prices -> re-ask.
-- **Open house datetime**: Parse to ISO-8601 with `-07:00` (PDT) or `-08:00`
-  (PST) depending on month, timezone America/Vancouver. Also produce a `display`
+- **Open house datetime**: Parse to ISO-8601 with the correct UTC offset for
+  that date in `brokerage.timezone` from `config/realtor.json` (DST varies by
+  date, so resolve it per date, never assume). Also produce a `display`
   variant like `Saturday, May 4 | 12-2 PM` for the graphic.
 - **Go-live date**: Parse to `YYYY-MM-DD`. Use today's date from context for
   relative phrases ("Friday", "next week").
@@ -301,7 +308,7 @@ from `inputs.json`. Claude never does timezone math by hand:
 node .claude/skills/listing-marketing/scripts/build-posts-skeleton.js data/marketing/runs/<run>
 ```
 
-**Timing table (authoritative, all times America/Vancouver, DST-safe):**
+**Timing table (authoritative, all times local to `brokerage.timezone`, DST-safe):**
 
 | Post | Timing | Angle |
 |---|---|---|

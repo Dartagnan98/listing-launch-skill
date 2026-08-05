@@ -14,7 +14,9 @@
     "team_name": "Example Real Estate Group",
     "designation": "",
     "city": "Vancouver",
-    "region": "BC"
+    "region": "BC",
+    "service_area": "Vancouver and the Lower Mainland",
+    "timezone": "America/Vancouver"
   },
   "branding": {
     "_doc": "Neutral placeholders. Replace with the realtor's real palette and type. Every colour and font in the graphic and email templates comes from here -- none are hardcoded.",

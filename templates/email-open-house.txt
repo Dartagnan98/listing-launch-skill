@@ -19,6 +19,6 @@ WHY COME IN PERSON
 {{agent_email}}
 {{agent_website}}
 
-You are receiving this because you asked to hear about new listings in the BC Interior.
+You are receiving this because you asked to hear about new listings in {{service_area}}.
 Unsubscribe: [[UNSUB_LINK]]
 {{footer_location}}

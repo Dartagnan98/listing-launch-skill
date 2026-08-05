@@ -70,6 +70,16 @@ function main() {
       ? 'Copy config/mailjet-lists.example.json and add your Mailjet list IDs.'
       : 'List IDs are blank or 0. Get them from the Mailjet contacts UI.');
 
+  // A wrong timezone sends the whole campaign at the wrong hour, and it fails
+  // silently, so surface it rather than trusting the default.
+  let tz = null;
+  if (fs.existsSync(cfg('realtor.json'))) {
+    try { tz = (JSON.parse(fs.readFileSync(cfg('realtor.json'), 'utf8')).brokerage || {}).timezone; }
+    catch { /* reported above */ }
+  }
+  add(`timezone${tz ? ` (${tz})` : ''}`, Boolean(tz), true,
+    'Set brokerage.timezone in config/realtor.json to the realtor market\'s IANA zone.');
+
   // --- brand assets ---
   let logosOk = false, logoFix = 'Set branding.logo_light in config/realtor.json.';
   if (fs.existsSync(cfg('realtor.json'))) {

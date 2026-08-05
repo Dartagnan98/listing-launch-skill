@@ -90,6 +90,9 @@ function flat(cfg = load()) {
     team_title_line: [a.title, b.team_name].filter(Boolean).join(' &middot; '),
     team_title_line_text: [a.title, b.team_name].filter(Boolean).join(', '),
     footer_location: [b.team_name || b.name, b.city, b.region].filter(Boolean).join(', '),
+    // How the realtor describes her market in prose, e.g. the email footer's
+    // "new listings in <service_area>". Falls back to city + region.
+    service_area: b.service_area || [b.city, b.region].filter(Boolean).join(', '),
     brand_logo: assetUrl(br.logo_light),
     brand_logo_dark: assetUrl(br.logo_dark || br.logo_light),
     // Palette. Defaults are deliberately neutral greys -- a missing config
@@ -120,7 +123,18 @@ function flat(cfg = load()) {
   };
 }
 
-module.exports = { load, loadVoice, flat, assetUrl, CONFIG_PATH, SKILL_DIR };
+/**
+ * IANA timezone every scheduled time is computed in. All post and email times
+ * are local to the realtor's market, so this must be her market's zone, not the
+ * machine's. Falls back to the host system.
+ */
+function timezone(cfg = load()) {
+  return (cfg.brokerage || {}).timezone ||
+    Intl.DateTimeFormat().resolvedOptions().timeZone ||
+    'UTC';
+}
+
+module.exports = { load, loadVoice, flat, timezone, assetUrl, CONFIG_PATH, SKILL_DIR };
 
 // ponytail: self-check. `node realtor-config.js --check` validates the example.
 if (require.main === module && process.argv[2] === '--check') {

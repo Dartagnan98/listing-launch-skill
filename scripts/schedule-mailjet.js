@@ -149,7 +149,7 @@ function cityFromAddress(full) {
 /** Coming-soon hero headline is listing-specific but stage-constant pattern. */
 function comingSoonHeadline(inputs) {
   const goLive = inputs.go_live_date ? new Date(inputs.go_live_date + 'T12:00:00Z') : null;
-  const day = goLive ? goLive.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'America/Vancouver' }) : 'soon';
+  const day = goLive ? goLive.toLocaleDateString('en-US', { weekday: 'long', timeZone: realtorConfig.timezone() }) : 'soon';
   const feature = (inputs.recreational_feature || inputs.unique_features || 'listing')
     .split('.')[0].toLowerCase();
   return `A ${feature} listing, hitting ${day}`;

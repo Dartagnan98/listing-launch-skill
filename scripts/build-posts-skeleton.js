@@ -3,7 +3,7 @@
  * Build a posts.json skeleton with scheduled_at_iso pre-computed and
  * empty caption/hashtag slots for Claude to fill in.
  *
- * Timing rules (all in America/Vancouver):
+ * Timing rules (all in the realtor's timezone, brokerage.timezone):
  *   Coming Soon     : go_live_date      - 3 days  @ 10:00 local
  *   Just Listed     : go_live_date                @ 09:00 local
  *   Open House -3d  : open_house_iso    - 3 days  @ 09:00 local
@@ -22,19 +22,19 @@ const fs = require('fs');
 const realtorConfig = require('./realtor-config');
 const path = require('path');
 
-// America/Vancouver offset: -08:00 (PST) Nov-Mar, -07:00 (PDT) Mar-Nov.
-// Use Intl.DateTimeFormat to get the actual offset for the target date.
-function vancouverOffset(dateStr) {
+// Resolve the realtor's UTC offset for a given date, so DST is handled per
+// date rather than assumed. Zone comes from brokerage.timezone.
+function localOffset(dateStr) {
   // dateStr = YYYY-MM-DD; find offset at noon local on that date
   const d = new Date(`${dateStr}T12:00:00Z`);
   const fmt = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'America/Vancouver',
+    timeZone: realtorConfig.timezone(),
     timeZoneName: 'shortOffset',
   });
   const parts = fmt.formatToParts(d);
   const tz = parts.find(p => p.type === 'timeZoneName').value; // e.g. "GMT-7"
   const m = tz.match(/GMT([+-])(\d+)(?::(\d+))?/);
-  if (!m) return '-08:00';
+  if (!m) return '+00:00';
   const sign = m[1];
   const h = String(m[2]).padStart(2, '0');
   const mm = (m[3] || '00').padStart(2, '0');
@@ -50,7 +50,7 @@ function addDays(isoDate, days) {
 
 function atLocal(isoDate, hour) {
   // combine YYYY-MM-DD + local hour -> ISO with Vancouver offset
-  const off = vancouverOffset(isoDate);
+  const off = localOffset(isoDate);
   const hh = String(hour).padStart(2, '0');
   return `${isoDate}T${hh}:00:00${off}`;
 }
