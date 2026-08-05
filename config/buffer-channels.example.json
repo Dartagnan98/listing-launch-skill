@@ -1,0 +1,30 @@
+{
+  "_doc": "Copy to config/buffer-channels.json. Get channel IDs by running: node scripts/schedule-buffer.js --list-channels (or Buffer Publish > channel settings). Phase 0 onboarding can fill this for you.",
+  "account_id": "",
+  "email": "you@example.com",
+  "api_base": "https://api.buffer.com/",
+  "auth_header": "Authorization: Bearer ${BUFFER_TOKEN}",
+  "channels": {
+    "primary_ig": {
+      "id": "",
+      "name": "yourinstagramhandle",
+      "service": "instagram",
+      "brand": "primary"
+    },
+    "primary_fb": {
+      "id": "",
+      "name": "Your Facebook Page",
+      "service": "facebook",
+      "brand": "primary"
+    },
+    "secondary_ig": {
+      "id": "",
+      "name": "yoursecondaryhandle",
+      "service": "instagram",
+      "brand": "secondary"
+    }
+  },
+  "default_listing_targets": ["primary_ig", "primary_fb"],
+  "secondary_instagram": "secondary_ig",
+  "notes": "Buffer uses the OIDC token API at api.buffer.com (GraphQL). v1 REST at bufferapp.com is deprecated for these tokens. Token: Buffer Publish > Account > Apps > Create Access Token."
+}

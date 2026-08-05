@@ -1,0 +1,39 @@
+{
+  "_doc": "Copy to config/voice.json and tune. This is the realtor's writing fingerprint -- every post and email is drafted against it. The richest version is mined from the realtor's own outgoing messages and written up in docs/voice/realtor-profile.md at the host repo root; this file is the short form the copy step actually loads.",
+  "voice_rules": {
+    "voice": "Warm, direct, authentic. Writes like a competent friend who happens to know real estate, not a brochure. Proper capitalization, generous whitespace, zero corporate fluff.",
+    "signature_phrases_by_frequency": [
+      "Replace these with the realtor's actual high-frequency phrases, most common first.",
+      "Mine them from real outgoing texts/emails so the list reflects how she genuinely writes.",
+      "Keep 6-10. Anything rarer reads as a tic when it lands in every post."
+    ],
+    "do_not_use_in_writing": [
+      "Phrases the realtor says out loud but never writes. Spoken tics do not survive on the page.",
+      "Anything a competitor's listing post would also say."
+    ],
+    "emoji_rules": [
+      "Name the one or two emoji the realtor actually uses, and the ones she never uses.",
+      "If she does not use emoji, say so here and the copy step will drop them."
+    ],
+    "hard_rules": [
+      "NO em dashes. Ever. Use a comma, period, or a blank line instead.",
+      "NO AI cliches: 'nestled', 'oasis', 'stunning', 'dream home', 'this one wont last', 'dont miss out', 'act fast'.",
+      "NO corporate real estate jargon.",
+      "NO sycophancy, no 'Im so happy to share'.",
+      "Full sentences with proper capitalization.",
+      "Line breaks between beats. Multi-paragraph, not a wall of text.",
+      "Price belongs in the body of the launch post, not just on the graphic.",
+      "Leave minor typos / autocorrect feel, do not over-polish."
+    ],
+    "source_of_truth": "docs/voice/realtor-profile.md -- read before drafting if unsure."
+  },
+  "hashtag_rules": {
+    "count": "5-8 per post",
+    "mix": [
+      "2-3 local tags: the realtor's market plus the specific town of the listing",
+      "2-3 lifestyle tags tied to unique_features / recreational_feature (#waterfront, #acreage, #riverfront, #mountainviews, etc.)",
+      "1-2 brand tags from config/realtor.json social.brand_hashtags"
+    ],
+    "avoid": ["#dreamhome", "#luxuryliving", "#realestategoals", "#homesweethome -- generic spam tags"]
+  }
+}

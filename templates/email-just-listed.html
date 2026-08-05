@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Listed — {{address_short}}</title>
+    <link href="{{google_fonts_url}}" rel="stylesheet">
+    <style>
+      body, table, td, p, a, li, blockquote { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+      body { margin: 0; padding: 0; background: {{surface_color}}; }
+      img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; }
+      a { color: {{primary_color}}; }
+      @media only screen and (max-width: 620px) {
+        .container { width: 100% !important; }
+        .px { padding-left: 24px !important; padding-right: 24px !important; }
+        .hero-h1 { font-size: 32px !important; line-height: 1.15 !important; }
+        .price { font-size: 28px !important; }
+        .section-h2 { font-size: 26px !important; }
+      }
+    </style>
+  </head>
+  <body style="margin:0;padding:0;background:{{surface_color}};font-family:{{body_font_stack}};color:{{text_color}};">
+    <div style="display:none;max-height:0;overflow:hidden;font-size:1px;line-height:1px;color:{{surface_color}};opacity:0;">{{preheader}}</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:{{surface_color}};">
+      <tr>
+        <td align="center" style="padding:32px 16px;">
+          <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:#ffffff;">
+
+            <tr>
+              <td align="center" style="background:{{primary_color}};padding:20px 24px;">
+                <div style="font-family:{{heading_font_stack}};font-size:22px;letter-spacing:2px;color:#ffffff;text-transform:uppercase;">{{team_name}}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:0;">
+                <img src="{{hero_image_url}}" alt="Just Listed — {{address_short}}" width="600" style="width:100%;max-width:600px;height:auto;display:block;">
+              </td>
+            </tr>
+
+            <tr>
+              <td class="px" style="padding:40px 48px 8px 48px;">
+                <div style="font-family:{{body_font_stack}};font-size:12px;letter-spacing:3px;text-transform:uppercase;color:{{accent_color}};font-weight:700;">Just Listed</div>
+                <h1 class="hero-h1" style="margin:12px 0 0 0;font-family:{{heading_font_stack}};font-size:38px;line-height:1.1;color:{{primary_color}};font-weight:500;">{{address_short}}</h1>
+                <div style="margin-top:6px;font-family:{{body_font_stack}};font-size:16px;color:{{muted_color}};">{{address_city}}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="px" style="padding:20px 48px 0 48px;">
+                <div class="price" style="font-family:{{heading_font_stack}};font-size:34px;color:{{text_color}};font-weight:600;">{{price}}</div>
+                {{#mls}}<div style="margin-top:4px;font-family:{{body_font_stack}};font-size:14px;color:{{muted_color}};">MLS&reg; {{mls}}</div>{{/mls}}
+              </td>
+            </tr>
+
+            <tr>
+              <td class="px" style="padding:24px 48px 0 48px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid {{border_color}};border-bottom:1px solid {{border_color}};">
+                  <tr>
+                    <td align="center" style="padding:16px 4px;font-family:{{body_font_stack}};"><div style="font-family:{{heading_font_stack}};font-size:22px;color:{{primary_color}};font-weight:600;">{{feature_1_value}}</div><div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:{{muted_color}};margin-top:2px;">{{feature_1_label}}</div></td>
+                    <td align="center" style="padding:16px 4px;font-family:{{body_font_stack}};"><div style="font-family:{{heading_font_stack}};font-size:22px;color:{{primary_color}};font-weight:600;">{{feature_2_value}}</div><div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:{{muted_color}};margin-top:2px;">{{feature_2_label}}</div></td>
+                    <td align="center" style="padding:16px 4px;font-family:{{body_font_stack}};"><div style="font-family:{{heading_font_stack}};font-size:22px;color:{{primary_color}};font-weight:600;">{{feature_3_value}}</div><div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:{{muted_color}};margin-top:2px;">{{feature_3_label}}</div></td>
+                    <td align="center" style="padding:16px 4px;font-family:{{body_font_stack}};"><div style="font-family:{{heading_font_stack}};font-size:22px;color:{{primary_color}};font-weight:600;">{{feature_4_value}}</div><div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:{{muted_color}};margin-top:2px;">{{feature_4_label}}</div></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="px" style="padding:32px 48px 0 48px;font-family:{{body_font_stack}};font-size:16px;line-height:1.65;color:{{text_color}};">
+                {{body_intro_html}}
+              </td>
+            </tr>
+
+            {{#_hasArea}}
+            <tr>
+              <td class="px" style="padding:40px 48px 0 48px;">
+                <div style="font-family:{{body_font_stack}};font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:{{accent_color}};font-weight:700;">The Setting</div>
+                <h2 class="section-h2" style="margin:10px 0 16px 0;font-family:{{heading_font_stack}};font-size:30px;line-height:1.15;color:{{primary_color}};font-weight:500;">{{setting_heading}}</h2>
+              </td>
+            </tr>
+            <tr><td style="padding:0;"><img src="{{area_photo_url}}" alt="{{area_photo_caption}}" width="600" style="width:100%;max-width:600px;height:auto;display:block;"></td></tr>
+            <tr>
+              <td class="px" style="padding:16px 48px 0 48px;font-family:{{body_font_stack}};font-size:16px;line-height:1.65;color:{{text_color}};">
+                {{setting_html}}
+              </td>
+            </tr>
+            {{/_hasArea}}
+
+            {{#_hasRecreational}}
+            <tr>
+              <td class="px" style="padding:40px 48px 0 48px;">
+                <div style="font-family:{{body_font_stack}};font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:{{accent_color}};font-weight:700;">The Feature</div>
+                <h2 class="section-h2" style="margin:10px 0 16px 0;font-family:{{heading_font_stack}};font-size:30px;line-height:1.15;color:{{primary_color}};font-weight:500;">{{recreational_heading}}</h2>
+              </td>
+            </tr>
+            <tr><td style="padding:0;"><img src="{{recreational_photo_url}}" alt="{{recreational_photo_caption}}" width="600" style="width:100%;max-width:600px;height:auto;display:block;"></td></tr>
+            <tr>
+              <td class="px" style="padding:16px 48px 0 48px;font-family:{{body_font_stack}};font-size:16px;line-height:1.65;color:{{text_color}};">
+                {{recreational_html}}
+              </td>
+            </tr>
+            {{/_hasRecreational}}
+
+            {{#_hasInfrastructure}}
+            <tr>
+              <td class="px" style="padding:40px 48px 0 48px;">
+                <div style="font-family:{{body_font_stack}};font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:{{accent_color}};font-weight:700;">What Makes This Lot Work</div>
+                <h2 class="section-h2" style="margin:10px 0 16px 0;font-family:{{heading_font_stack}};font-size:30px;line-height:1.15;color:{{primary_color}};font-weight:500;">{{infrastructure_heading}}</h2>
+              </td>
+            </tr>
+            <tr>
+              <td class="px" style="padding:0 48px;font-family:{{body_font_stack}};font-size:16px;line-height:1.65;color:{{text_color}};">
+                {{infrastructure_html}}
+              </td>
+            </tr>
+            {{/_hasInfrastructure}}
+
+            {{#open_house_display}}
+            <tr>
+              <td class="px" style="padding:40px 48px 0 48px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:{{surface_color}};border-left:4px solid {{accent_color}};">
+                  <tr>
+                    <td style="padding:20px 24px;font-family:{{body_font_stack}};">
+                      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:{{accent_color}};font-weight:700;">Open House</div>
+                      <div style="margin-top:6px;font-family:{{heading_font_stack}};font-size:22px;color:{{primary_color}};font-weight:600;line-height:1.2;">{{open_house_display}}</div>
+                      <div style="margin-top:8px;font-size:15px;color:{{text_color}};line-height:1.5;">I will be on-site the whole time. Come say hi, bring a friend who is house-hunting, bring questions.</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            {{/open_house_display}}
+
+            <tr>
+              <td align="center" class="px" style="padding:36px 48px 0 48px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td align="center" style="background:{{primary_color}};padding:0;">
+                      <a href="{{cta_url}}" style="display:inline-block;padding:16px 36px;font-family:{{body_font_stack}};font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#ffffff;text-decoration:none;font-weight:700;">{{cta_text}}</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="px" style="padding:36px 48px 0 48px;font-family:{{body_font_stack}};font-size:16px;line-height:1.65;color:{{text_color}};">
+                {{signoff_html}}
+              </td>
+            </tr>
+
+            <tr>
+              <td class="px" style="padding:24px 48px 48px 48px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid {{border_color}};">
+                  <tr>
+                    <td style="padding-top:24px;font-family:{{body_font_stack}};font-size:14px;line-height:1.6;color:{{text_color}};">
+                      <div style="font-family:{{heading_font_stack}};font-size:20px;color:{{primary_color}};font-weight:600;">{{agent_name}}</div>
+                      <div style="color:{{muted_color}};font-size:13px;margin-top:2px;">{{team_title_line}}</div>
+                      <div style="color:{{muted_color}};font-size:13px;">{{brokerage_line}}</div>
+                      <div style="margin-top:12px;"><a href="tel:{{agent_phone_href}}" style="color:{{primary_color}};text-decoration:none;">{{agent_phone}}</a>&nbsp;&middot;&nbsp;<a href="mailto:{{agent_email}}" style="color:{{primary_color}};text-decoration:none;">{{agent_email}}</a></div>
+                      <div style="margin-top:4px;"><a href="{{agent_website_url}}" style="color:{{primary_color}};text-decoration:none;">{{agent_website}}</a></div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
+            <tr>
+              <td align="center" style="padding:24px 16px;font-family:{{body_font_stack}};font-size:12px;line-height:1.5;color:{{muted_light_color}};">
+                You are receiving this because you asked to hear about new listings in the BC Interior.<br>
+                <a href="[[UNSUB_LINK]]" style="color:{{muted_light_color}};text-decoration:underline;">Unsubscribe</a>&nbsp;&middot;&nbsp;{{footer_location}}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

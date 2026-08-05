@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Just Sold E — brand-marked with footer rail</title>
+<link rel="stylesheet" href="{{google_fonts_url}}">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: {{surface_color}}; }
+  #canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: {{surface_color}};
+    overflow: hidden;
+    font-family: {{body_font_stack}};
+    color: {{primary_color}};
+  }
+  #canvas img { display: block; }
+  #canvas span { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="canvas" data-template="just-sold-E" data-width="1080" data-height="1350">
+
+  <!-- brand logo top center -->
+  <img src="{{brand_logo}}" style="position:absolute;left:50%;top:36px;transform:translateX(-50%);width:560px;height:auto;" />
+
+  <!-- eXp logo top right -->
+  <img src="{{brand_logo_dark}}" style="position:absolute;right:70px;top:78px;width:130px;height:auto;" />
+
+  <!-- main hero photo (zone: 220-1230, 1010px tall) -->
+  <div style="position:absolute;left:50px;top:220px;width:980px;height:1010px;overflow:hidden;" data-layer="main-image" data-field="main_photo">
+    <img src="{{main_photo}}" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;" />
+  </div>
+
+  <!-- dark gradient at bottom of hero for text legibility -->
+  <div style="position:absolute;left:50px;top:830px;width:980px;height:400px;background:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.78) 100%);pointer-events:none;"></div>
+
+  <!-- Just Sold script -->
+  <div style="position:absolute;left:50px;top:910px;width:980px;text-align:center;font-family:{{heading_font_stack}};font-size:124px;font-weight:500;font-style:italic;line-height:1;color:#FFFFFF;letter-spacing:-1px;" data-layer="status-headline" data-field="status_text">
+    <span>{{status_text}}</span>
+  </div>
+
+  <!-- Address italic serif -->
+  <div style="position:absolute;left:50px;top:1050px;width:980px;text-align:center;font-family:{{heading_font_stack}};font-size:90px;font-weight:500;font-style:italic;line-height:1;color:#FFFFFF;letter-spacing:-0.5px;" data-layer="address" data-field="address">
+    <span>{{address}}</span>
+  </div>
+
+  <!-- City small caps -->
+  <div style="position:absolute;left:50px;top:1170px;width:980px;text-align:center;font-family:{{body_font_stack}};font-size:24px;font-weight:700;letter-spacing:8px;text-transform:uppercase;color:#FFFFFF;" data-layer="city" data-field="city">
+    <span>{{city}}</span>
+  </div>
+
+  <!-- cream footer rail with contact info + green circle icons -->
+  <div style="position:absolute;left:0;top:1250px;width:1080px;height:100px;background:{{surface_color}};display:flex;align-items:center;justify-content:center;gap:40px;font-family:{{body_font_stack}};font-size:22px;font-weight:400;color:{{text_color}};">
+
+    <!-- phone -->
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div style="width:42px;height:42px;border-radius:50%;background:{{primary_color}};display:flex;align-items:center;justify-content:center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </div>
+      <span data-layer="phone" data-field="phone"><span>{{phone}}</span></span>
+    </div>
+
+    <!-- website -->
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div style="width:42px;height:42px;border-radius:50%;background:{{primary_color}};display:flex;align-items:center;justify-content:center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <span data-layer="website" data-field="website"><span>{{website}}</span></span>
+    </div>
+
+    <!-- email -->
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div style="width:42px;height:42px;border-radius:50%;background:{{primary_color}};display:flex;align-items:center;justify-content:center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+      <span data-layer="email" data-field="email"><span>{{email}}</span></span>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

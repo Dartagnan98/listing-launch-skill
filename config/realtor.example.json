@@ -1,0 +1,50 @@
+{
+  "_doc": "Copy to config/realtor.json, or let Phase 0 onboarding write it for you. This file is the single source of truth for everything realtor-specific. No realtor details are hardcoded anywhere in scripts or templates.",
+  "agent": {
+    "name": "Jane Doe",
+    "title": "Founder",
+    "email": "jane@example.com",
+    "phone_display": "(555) 123-4567",
+    "phone_href": "+15551234567",
+    "website_display": "janedoe.com",
+    "website_url": "https://janedoe.com"
+  },
+  "brokerage": {
+    "name": "Example Realty",
+    "team_name": "Example Real Estate Group",
+    "designation": "",
+    "city": "Vancouver",
+    "region": "BC"
+  },
+  "branding": {
+    "_doc": "Neutral placeholders. Replace with the realtor's real palette and type. Every colour and font in the graphic and email templates comes from here -- none are hardcoded.",
+    "logo_light": "assets/logo-light.png",
+    "logo_dark": "assets/logo-dark.png",
+    "primary_color": "#1F2933",
+    "primary_soft_color": "#6B7A85",
+    "accent_color": "#8A7B6B",
+    "text_color": "#2B2B2B",
+    "muted_color": "#6A6A6A",
+    "muted_light_color": "#9A9A9A",
+    "surface_color": "#F5F3F0",
+    "surface_alt_color": "#F7F7F7",
+    "surface_tint_color": "#EAE9E5",
+    "border_color": "#E4E1DC",
+    "heading_font": "Georgia",
+    "heading_font_fallback": "Georgia, serif",
+    "body_font": "Helvetica",
+    "body_font_fallback": "Helvetica, Arial, sans-serif",
+    "google_fonts": false
+  },
+  "social": {
+    "instagram_handle": "examplerealestate",
+    "brand_hashtags": [
+      "#examplerealestate",
+      "#janedoe"
+    ]
+  },
+  "drive": {
+    "_doc": "Google Drive folder that listing photo subfolders live under. Used to stage rendered graphics.",
+    "listing_parent": ""
+  }
+}

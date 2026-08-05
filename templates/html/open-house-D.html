@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Open House D — Invitation Card</title>
+<link rel="stylesheet" href="{{google_fonts_url}}">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: {{primary_color}}; }
+  #canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: {{primary_color}};
+    overflow: hidden;
+    font-family: {{body_font_stack}};
+    color: {{surface_alt_color}};
+  }
+  #canvas img { display: block; }
+  #canvas span { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="canvas" data-template="open-house-D" data-width="1080" data-height="1350">
+
+  <!-- decorative inner frame -->
+  <div style="position:absolute;left:40px;top:40px;width:1000px;height:1270px;border:1px solid rgba(247,247,247,0.22);"></div>
+
+  <!-- brand logo centered top (zone A: 80-180) -->
+  <img src="{{brand_logo}}" style="position:absolute;left:50%;top:80px;transform:translateX(-50%);width:260px;height:auto;filter:brightness(0) invert(1);" />
+
+  <!-- eyebrow (zone B: 200-226) -->
+  <div style="position:absolute;left:0;top:202px;width:1080px;height:24px;font-family:{{body_font_stack}};font-size:17px;font-weight:900;letter-spacing:5px;text-transform:uppercase;color:{{accent_color}};display:flex;align-items:center;justify-content:center;">
+    <span>You Are Invited To An</span>
+  </div>
+
+  <!-- OPEN HOUSE display headline (zone C: 248-378, 130px tall) -->
+  <div style="position:absolute;left:0;top:248px;width:1080px;height:130px;font-family:{{heading_font_stack}};font-size:128px;font-weight:500;font-style:italic;line-height:1;color:{{surface_alt_color}};display:flex;align-items:center;justify-content:center;" data-layer="status-headline" data-field="status_text">
+    <span>{{status_text}}</span>
+  </div>
+
+  <!-- ornament rule with diamond (divider: 410) -->
+  <div style="position:absolute;left:340px;top:410px;width:180px;height:1px;background:rgba(247,247,247,0.45);"></div>
+  <div style="position:absolute;right:340px;top:410px;width:180px;height:1px;background:rgba(247,247,247,0.45);"></div>
+  <div style="position:absolute;left:530px;top:404px;width:14px;height:14px;background:{{accent_color}};transform:rotate(45deg);"></div>
+
+  <!-- date / time display (zone D: 430-490) -->
+  <div style="position:absolute;left:0;top:432px;width:1080px;height:58px;font-family:{{heading_font_stack}};font-size:54px;font-weight:400;font-style:italic;color:{{surface_alt_color}};display:flex;align-items:center;justify-content:center;" data-layer="open-house-datetime" data-field="open_house_datetime">
+    <span>{{open_house_datetime}}</span>
+  </div>
+
+  <!-- hero photo card (zone E: 530-940, 410px tall, white-framed) -->
+  <div style="position:absolute;left:120px;top:530px;width:840px;height:410px;padding:14px;background:#FFFFFF;box-sizing:border-box;box-shadow:0 24px 44px rgba(0,0,0,0.3);">
+    <div style="width:100%;height:100%;overflow:hidden;" data-layer="main-image" data-field="main_photo">
+      <img src="{{main_photo}}" style="width:100%;height:100%;object-fit:cover;object-position:center 65%;" />
+    </div>
+  </div>
+
+  <!-- price pill overlapping hero bottom (y=910-984) -->
+  <div style="position:absolute;left:50%;top:910px;transform:translateX(-50%);height:74px;padding:0 38px;background:{{accent_color}};display:flex;align-items:center;justify-content:center;font-family:{{heading_font_stack}};font-size:44px;font-weight:700;color:#FFFFFF;letter-spacing:1px;" data-layer="price" data-field="price">
+    <span>{{price}}</span>
+  </div>
+
+  <!-- address (zone F: 1030-1074) -->
+  <div style="position:absolute;left:0;top:1032px;width:1080px;height:42px;font-family:{{body_font_stack}};font-size:28px;font-weight:700;letter-spacing:4.5px;text-transform:uppercase;color:{{surface_alt_color}};display:flex;align-items:center;justify-content:center;overflow:hidden;" data-layer="address" data-field="address">
+    <span>{{address}}</span>
+  </div>
+
+  <!-- features line (zone F: 1088-1128) -->
+  <div style="position:absolute;left:0;top:1090px;width:1080px;height:40px;font-family:{{heading_font_stack}};font-size:32px;font-weight:400;font-style:italic;color:{{accent_color}};display:flex;align-items:center;justify-content:center;overflow:hidden;" data-layer="features" data-field="features">
+    <span>{{features}}</span>
+  </div>
+
+  <!-- closing diamond ornament (y=1188) -->
+  <div style="position:absolute;left:50%;top:1188px;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:{{accent_color}};"></div>
+
+  <!-- hairline above footer (y=1222) -->
+  <div style="position:absolute;left:120px;top:1222px;width:840px;height:1px;background:rgba(247,247,247,0.22);"></div>
+
+  <!-- footer contact strip (zone G: 1236-1278, within content bounds) -->
+  <div style="position:absolute;left:0;top:1236px;width:1080px;height:42px;display:flex;align-items:center;justify-content:center;gap:30px;font-family:{{body_font_stack}};font-size:16px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:rgba(247,247,247,0.92);">
+    <span data-layer="phone" data-field="phone"><span>{{phone}}</span></span>
+    <span style="color:{{accent_color}};">◆</span>
+    <span data-layer="email" data-field="email"><span>{{email}}</span></span>
+    <span style="color:{{accent_color}};">◆</span>
+    <span data-layer="website" data-field="website"><span>{{website}}</span></span>
+  </div>
+
+</div>
+</body>
+</html>

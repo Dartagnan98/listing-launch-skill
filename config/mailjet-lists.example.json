@@ -1,0 +1,19 @@
+{
+  "_doc": "Copy to config/mailjet-lists.json. contacts_list_key in posts.json#emails[] maps to an entry here. Update when a new list is added in Mailjet. Phase 0 onboarding can fill this for you.",
+  "default_sender": {
+    "email": "you@example.com",
+    "name": "Your Name"
+  },
+  "lists": {
+    "whole_list": {
+      "id": 0,
+      "name": "Whole List V1",
+      "notes": "Primary blast list."
+    },
+    "test_list": {
+      "id": 0,
+      "name": "Test List",
+      "notes": "Use for API probes, never for real sends."
+    }
+  }
+}

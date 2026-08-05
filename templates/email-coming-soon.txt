@@ -1,0 +1,24 @@
+{{body_intro}}
+
+{{#_hasRecreational}}
+THE HOOK
+{{recreational_heading}}
+
+{{recreational}}
+{{/_hasRecreational}}
+
+{{cta_text}}: {{cta_url}}
+
+{{signoff}}
+
+--
+{{agent_name}}
+{{team_title_line_text}}
+{{brokerage_line_text}}
+{{agent_phone}}
+{{agent_email}}
+{{agent_website}}
+
+You are receiving this because you asked to hear about new listings in the BC Interior.
+Unsubscribe: [[UNSUB_LINK]]
+{{footer_location}}

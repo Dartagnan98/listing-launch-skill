@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.*
+data/
+out/
+.DS_Store
+
+# per-realtor config, written by Phase 0 onboarding
+config/realtor.json
+config/buffer-channels.json
+config/mailjet-lists.json
+
+# realtor brand assets, dropped in by Phase 0 onboarding
+assets/*.png
+assets/*.jpg
+assets/*.svg

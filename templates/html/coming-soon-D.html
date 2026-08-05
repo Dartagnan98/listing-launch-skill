@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Coming Soon D — Editorial Teaser</title>
+<link rel="stylesheet" href="{{google_fonts_url}}">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: {{surface_alt_color}}; }
+  #canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: #FFFFFF;
+    overflow: hidden;
+    font-family: {{body_font_stack}};
+    color: {{text_color}};
+  }
+  #canvas img { display: block; }
+  #canvas span { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="canvas" data-template="coming-soon-D" data-width="1080" data-height="1350">
+
+  <!-- brand logo top-left (zone A: 56-146) -->
+  <img src="{{brand_logo}}" style="position:absolute;left:60px;top:60px;width:240px;height:auto;" />
+
+  <!-- top-right eyebrow label -->
+  <div style="position:absolute;right:60px;top:80px;width:300px;height:36px;font-family:{{body_font_stack}};font-size:17px;font-weight:700;letter-spacing:3.2px;text-transform:uppercase;color:{{accent_color}};display:flex;align-items:center;justify-content:flex-end;">
+    <span>No. 001 / Preview</span>
+  </div>
+
+  <!-- subtle top hairline -->
+  <div style="position:absolute;left:60px;top:180px;width:960px;height:1px;background:{{border_color}};"></div>
+
+  <!-- hero photo (zone B: 210-750, 540px tall) -->
+  <div style="position:absolute;left:60px;top:210px;width:960px;height:540px;overflow:hidden;" data-layer="main-image" data-field="main_photo">
+    <img src="{{main_photo}}" style="width:100%;height:100%;object-fit:cover;object-position:center 65%;" />
+  </div>
+
+  <!-- accent tag pinned to hero bottom-left -->
+  <div style="position:absolute;left:60px;top:690px;width:320px;height:70px;background:{{accent_color}};display:flex;align-items:center;justify-content:center;font-family:{{body_font_stack}};font-size:22px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:#FFFFFF;">
+    <span>Coming Friday</span>
+  </div>
+
+  <!-- editorial headline in heading-font italic (zone C: 790-920) -->
+  <div style="position:absolute;left:60px;top:790px;width:960px;height:130px;font-family:{{heading_font_stack}};font-size:124px;font-weight:500;font-style:italic;line-height:1;color:{{primary_color}};display:flex;align-items:flex-start;" data-layer="status-headline" data-field="status_text">
+    <span>{{status_text}}.</span>
+  </div>
+
+  <!-- accent hairline rule -->
+  <div style="position:absolute;left:60px;top:950px;width:100px;height:4px;background:{{accent_color}};"></div>
+
+  <!-- address (zone D: 980-1030) -->
+  <div style="position:absolute;left:60px;top:980px;width:960px;height:46px;font-family:{{body_font_stack}};font-size:34px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:{{text_color}};display:flex;align-items:center;overflow:hidden;" data-layer="address" data-field="address">
+    <span>{{address}}</span>
+  </div>
+
+  <!-- features line in heading-font regular italic -->
+  <div style="position:absolute;left:60px;top:1038px;width:960px;height:46px;font-family:{{heading_font_stack}};font-size:36px;font-weight:400;font-style:italic;color:{{primary_soft_color}};display:flex;align-items:center;overflow:hidden;" data-layer="features" data-field="features">
+    <span>{{features}}</span>
+  </div>
+
+  <!-- two inset photos (zone E: 1110-1270, 160px tall) -->
+  <div style="position:absolute;left:60px;top:1110px;width:580px;height:160px;overflow:hidden;" data-layer="interior" data-field="interior_photo">
+    <img src="{{interior_photo}}" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+  </div>
+  <div style="position:absolute;left:660px;top:1110px;width:360px;height:160px;overflow:hidden;" data-layer="secondary" data-field="secondary_photo">
+    <img src="{{secondary_photo}}" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+  </div>
+
+  <!-- footer rail (zone F: 1290-1350) -->
+  <div style="position:absolute;left:0;top:1290px;width:1080px;height:60px;background:{{primary_color}};display:flex;align-items:center;justify-content:center;gap:36px;font-family:{{body_font_stack}};font-size:16px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:{{surface_alt_color}};">
+    <span data-layer="phone" data-field="phone"><span>{{phone}}</span></span>
+    <span style="opacity:0.5;">·</span>
+    <span data-layer="email" data-field="email"><span>{{email}}</span></span>
+    <span style="opacity:0.5;">·</span>
+    <span data-layer="website" data-field="website"><span>{{website}}</span></span>
+  </div>
+
+</div>
+</body>
+</html>

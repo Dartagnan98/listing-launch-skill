@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Just Sold D — Single Image with Side Bar</title>
+<link rel="stylesheet" href="{{google_fonts_url}}">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: {{text_color}}; }
+  #canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: {{text_color}};
+    overflow: hidden;
+    font-family: {{body_font_stack}};
+    color: #FFFFFF;
+  }
+  #canvas img { display: block; }
+  #canvas span { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="canvas" data-template="just-sold-D" data-width="1080" data-height="1350">
+
+  <!-- full-bleed hero photo -->
+  <div style="position:absolute;left:0;top:0;width:1080px;height:1350px;overflow:hidden;" data-layer="main-image" data-field="main_photo">
+    <img src="{{main_photo}}" style="width:100%;height:100%;object-fit:cover;object-position:center 55%;" />
+  </div>
+
+  <!-- subtle darkening wash on the left side for text legibility -->
+  <div style="position:absolute;left:0;top:0;width:660px;height:1350px;background:linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 100%);"></div>
+
+  <!-- vertical white bar accent -->
+  <div style="position:absolute;left:180px;top:280px;width:8px;height:680px;background:#FFFFFF;"></div>
+
+  <!-- JUST SOLD! headline -->
+  <div style="position:absolute;left:230px;top:300px;width:560px;font-family:{{heading_font_stack}};font-size:138px;font-weight:500;line-height:0.95;color:#FFFFFF;text-transform:uppercase;letter-spacing:-1px;" data-layer="status-headline" data-field="status_text">
+    <span>{{status_text}}</span>
+  </div>
+
+  <!-- address block (2 lines allowed) -->
+  <div style="position:absolute;left:230px;top:640px;width:560px;font-family:{{body_font_stack}};font-size:42px;font-weight:400;line-height:1.25;color:#FFFFFF;" data-layer="address" data-field="address">
+    <span>{{address}}</span>
+  </div>
+
+  <!-- CTA body -->
+  <div style="position:absolute;left:230px;top:820px;width:520px;font-family:{{body_font_stack}};font-size:38px;font-weight:300;line-height:1.35;color:#FFFFFF;" data-layer="cta" data-field="cta_text">
+    <span>{{cta_text}}</span>
+  </div>
+
+  <!-- discreet brand logo bottom-right (inverted white) -->
+  <img src="{{brand_logo}}" style="position:absolute;right:60px;bottom:60px;width:260px;height:auto;filter:brightness(0) invert(1);opacity:0.9;" />
+
+</div>
+</body>
+</html>

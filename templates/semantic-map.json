@@ -1,0 +1,80 @@
+{
+  "_doc": "Maps raw Templated layer names to canonical field names used by the marketing skill. Null means the layer is static/decorative (keep sample content). Layer names are case-sensitive and include typos from the original Templated designs (e.g. 'Secdonary Feature', 'INterior feature', 'Main Image URl').",
+
+  "main_photo": [
+    "Main Exterior Photo URL",
+    "Main Image URl",
+    "Main Photo URL",
+    "main-image"
+  ],
+  "interior_photo": [
+    "Interior Feature Photo URL",
+    "Interior Feature",
+    "INterior feature",
+    "Interior Photo URL"
+  ],
+  "secondary_photo": [
+    "Secondary Interior Photo URL",
+    "Secdonary Feature",
+    "secdonary feature",
+    "Secondary Image URL"
+  ],
+
+  "address": [
+    "property-address",
+    "text-address",
+    "address-text"
+  ],
+  "price": [
+    "property-price",
+    "text-price",
+    "price-text"
+  ],
+  "features": [
+    "property-features",
+    "Property Features"
+  ],
+  "status_text": [
+    "listing-status",
+    "text-coming-soon",
+    "just-listed-text",
+    "title-open-house",
+    "open-house-title"
+  ],
+  "open_house_datetime": [
+    "Open-house-date",
+    "Open-house-time",
+    "Open House Date and Time"
+  ],
+
+  "phone": [
+    "phone-number",
+    "text-phone",
+    "phone-text"
+  ],
+  "email": [
+    "email-address",
+    "text-email",
+    "email-text"
+  ],
+  "website": [
+    "web-url",
+    "text-website",
+    "text-web",
+    "web-text",
+    "website-text"
+  ],
+
+  "_static_decorative": [
+    "background-accent", "accent-block", "middle-accent-shape",
+    "footer-bar", "footer-block", "shape-footer-bar", "header-bar",
+    "price-badge", "price-box", "shape-price-bg", "shape-price-tag",
+    "shape-overlay-top", "shape-overlay-bottom",
+    "property-image",
+    "agency-logo", "logo-main", "logo-realtor", "logo", "real-estate-logo",
+    "image-branding", "logo-small", "logo-icon",
+    "web-icon", "icon-website", "icon-web",
+    "phone-icon", "icon-phone",
+    "email-icon", "icon-email"
+  ]
+}

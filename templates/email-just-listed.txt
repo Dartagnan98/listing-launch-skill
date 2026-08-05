@@ -1,0 +1,44 @@
+{{body_intro}}
+
+{{#_hasArea}}
+THE SETTING
+{{setting_heading}}
+
+{{setting}}
+{{/_hasArea}}
+
+{{#_hasRecreational}}
+THE FEATURE
+{{recreational_heading}}
+
+{{recreational}}
+{{/_hasRecreational}}
+
+{{#_hasInfrastructure}}
+WHAT MAKES THIS LOT WORK
+{{infrastructure_heading}}
+
+{{infrastructure}}
+{{/_hasInfrastructure}}
+
+{{#open_house_display}}
+OPEN HOUSE
+{{open_house_display}}
+I will be on-site the whole time. Come say hi, bring a friend who is house-hunting, bring questions.
+
+{{/open_house_display}}
+{{cta_text}}: {{cta_url}}
+
+{{signoff}}
+
+--
+{{agent_name}}
+{{team_title_line_text}}
+{{brokerage_line_text}}
+{{agent_phone}}
+{{agent_email}}
+{{agent_website}}
+
+You are receiving this because you asked to hear about new listings in the BC Interior.
+Unsubscribe: [[UNSUB_LINK]]
+{{footer_location}}

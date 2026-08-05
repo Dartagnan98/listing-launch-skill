@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Open House E — Cream Poster</title>
+<link rel="stylesheet" href="{{google_fonts_url}}">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: {{surface_color}}; }
+  #canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: {{surface_color}};
+    overflow: hidden;
+    font-family: {{body_font_stack}};
+    color: {{primary_color}};
+  }
+  #canvas img { display: block; }
+  #canvas span { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="canvas" data-template="open-house-E" data-width="1080" data-height="1350">
+
+  <!-- hero photo full-bleed top (zone A: 0-640) -->
+  <div style="position:absolute;left:0;top:0;width:1080px;height:640px;overflow:hidden;" data-layer="main-image" data-field="main_photo">
+    <img src="{{main_photo}}" style="width:100%;height:100%;object-fit:cover;object-position:center 65%;" />
+  </div>
+
+  <!-- brand logo where the "You Are Invited" eyebrow used to sit (zone B: 638-708) -->
+  <img src="{{brand_logo}}" style="position:absolute;left:50%;top:638px;transform:translateX(-50%);width:340px;height:auto;" />
+
+  <!-- OPEN HOUSE stage label (zone C: 726-846, 120px tall) -->
+  <div style="position:absolute;left:0;top:726px;width:1080px;height:120px;font-family:{{heading_font_stack}};font-size:120px;font-weight:500;font-style:italic;line-height:1;color:{{primary_color}};display:flex;align-items:center;justify-content:center;" data-layer="status-headline" data-field="status_text">
+    <span>{{status_text}}</span>
+  </div>
+
+  <!-- date/time pill forest green (zone D: 878-942) -->
+  <div style="position:absolute;left:50%;top:878px;transform:translateX(-50%);height:64px;padding:0 40px;background:{{primary_color}};display:flex;align-items:center;justify-content:center;font-family:{{body_font_stack}};font-size:20px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#FFFFFF;" data-layer="open-house-datetime" data-field="open_house_datetime">
+    <span>{{open_house_datetime}}</span>
+  </div>
+
+  <!-- ornamental rule + diamond (y=982) -->
+  <div style="position:absolute;left:320px;top:982px;width:180px;height:1px;background:{{primary_color}};opacity:0.4;"></div>
+  <div style="position:absolute;right:320px;top:982px;width:180px;height:1px;background:{{primary_color}};opacity:0.4;"></div>
+  <div style="position:absolute;left:530px;top:976px;width:14px;height:14px;background:{{accent_color}};transform:rotate(45deg);"></div>
+
+  <!-- price accent accent (zone E: 1006-1060) -->
+  <div style="position:absolute;left:0;top:1008px;width:1080px;height:56px;font-family:{{heading_font_stack}};font-size:54px;font-weight:700;color:{{accent_color}};display:flex;align-items:center;justify-content:center;" data-layer="price" data-field="price">
+    <span>{{price}}</span>
+  </div>
+
+  <!-- address (zone F: 1100-1142) -->
+  <div style="position:absolute;left:0;top:1100px;width:1080px;height:40px;font-family:{{body_font_stack}};font-size:28px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:{{primary_color}};display:flex;align-items:center;justify-content:center;overflow:hidden;" data-layer="address" data-field="address">
+    <span>{{address}}</span>
+  </div>
+
+  <!-- features line (zone F: 1152-1192) -->
+  <div style="position:absolute;left:0;top:1152px;width:1080px;height:40px;font-family:{{heading_font_stack}};font-size:30px;font-weight:400;font-style:italic;color:{{text_color}};display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:0.85;" data-layer="features" data-field="features">
+    <span>{{features}}</span>
+  </div>
+
+  <!-- ornamental hairline above footer (y=1232) -->
+  <div style="position:absolute;left:60px;top:1232px;width:960px;height:1px;background:{{primary_color}};opacity:0.22;"></div>
+
+  <!-- footer contact strip (zone G: 1290-1350) -->
+  <div style="position:absolute;left:0;top:1290px;width:1080px;height:60px;background:{{primary_color}};display:flex;align-items:center;justify-content:center;gap:30px;font-family:{{body_font_stack}};font-size:16px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:{{surface_alt_color}};">
+    <span data-layer="phone" data-field="phone"><span>{{phone}}</span></span>
+    <span style="color:{{accent_color}};">◆</span>
+    <span data-layer="email" data-field="email"><span>{{email}}</span></span>
+    <span style="color:{{accent_color}};">◆</span>
+    <span data-layer="website" data-field="website"><span>{{website}}</span></span>
+  </div>
+
+</div>
+</body>
+</html>
