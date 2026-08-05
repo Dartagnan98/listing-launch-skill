@@ -168,11 +168,16 @@ function buildDetailMarkdown({ inputs, posts, bufferUpdates, mailjetDrafts, coun
 }
 
 async function postLoftyNote(leadId, content) {
-  const envPath = path.join(REPO_ROOT, '.env');
-  const envFile = fs.readFileSync(envPath, 'utf8');
-  const m = envFile.match(/^LOFTY_API_KEY=(.+)$/m);
-  if (!m) return { ok: false, error: 'LOFTY_API_KEY missing in .env' };
-  const token = m[1].trim();
+  // Env var first; fall back to the host repo's .env. Lofty is best-effort, so
+  // a missing key is a skip, not a thrown ENOENT that kills the log step.
+  let token = process.env.LOFTY_API_KEY;
+  if (!token) {
+    const envPath = path.join(REPO_ROOT, '.env');
+    if (!fs.existsSync(envPath)) return { ok: false, error: 'LOFTY_API_KEY not set and no .env found' };
+    const m = fs.readFileSync(envPath, 'utf8').match(/^LOFTY_API_KEY=(.+)$/m);
+    if (!m) return { ok: false, error: 'LOFTY_API_KEY missing in .env' };
+    token = m[1].trim();
+  }
   const res = await fetch('https://api.chime.me/v1.0/notes', {
     method: 'POST',
     headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },

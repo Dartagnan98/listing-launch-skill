@@ -74,16 +74,19 @@ These hold for the entire run. Do not consult a reference for them — just do t
 ## Env vars required
 
 ```
-BUFFER_TOKEN          OIDC personal access token (Buffer Publish > Account > Apps)
-LISTING_DRIVE_PARENT  (optional) Drive folder ID; falls back to drive.listing_parent in config/realtor.json
-MAILJET_API_KEY       Mailjet v3 REST API key
+BUFFER_TOKEN          Buffer OIDC personal access token (Publish > Account > Apps)
+MAILJET_API_KEY       Mailjet v3 REST key
 MAILJET_SECRET_KEY    Mailjet v3 REST secret
-LOFTY_API_KEY         already set
-TEMPLATED_API_KEY     optional, only needed to port new templates
+LOFTY_API_KEY         Lofty CRM, optional -- only for the Phase 6 lead note
+LISTING_DRIVE_PARENT  optional, overrides drive.listing_parent in config/realtor.json
 ```
 
-gws CLI must be logged in with Drive + Docs scopes (already set).
-Node deps: `playwright` + chromium browser (shared with cma/property-lookup):
+None of these have defaults and none are stored in this repo. Put them in the
+host repo's `.env` (gitignored) or export them in the shell before a run. Every
+script that needs one fails loudly by name if it is missing.
+
+The `gws` CLI must be logged in with Drive + Docs scopes.
+Node deps: `playwright` + a chromium browser:
 
 ```bash
 npm install playwright

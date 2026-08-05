@@ -68,12 +68,15 @@ data/marketing/runs/           per-run output dirs
 BUFFER_TOKEN          Buffer OIDC personal access token (Publish > Account > Apps)
 MAILJET_API_KEY       Mailjet v3 REST key
 MAILJET_SECRET_KEY    Mailjet v3 REST secret
-LOFTY_API_KEY         Lofty CRM
-LISTING_DRIVE_PARENT  optional, Drive folder ID for listing photos
-TEMPLATED_API_KEY     optional, only to port new templates
+LOFTY_API_KEY         Lofty CRM, optional -- only for the Phase 6 lead note
+LISTING_DRIVE_PARENT  optional, overrides drive.listing_parent in config/realtor.json
 ```
 
-Also needs: `gws` CLI logged in with Drive + Docs scopes, and Playwright.
+None of these have defaults and none are stored in this repo. Put them in the
+host repo's `.env` (gitignored) or export them in the shell before a run. Every
+script that needs one fails loudly by name if it is missing.
+
+Also needs: the `gws` CLI logged in with Drive + Docs scopes, and Playwright.
 
 ```bash
 npm install playwright && npx playwright install chromium
