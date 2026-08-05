@@ -131,10 +131,23 @@ the realtor can rapid-fire answer. Re-ask only what comes back missing.
    them off the logo and read the values back for confirmation. Neutrals (text,
    muted, surface, border) default to a warm grey set and only need changing if
    she has opinions about them.
-11. Fonts — a heading face and a body face. Default is Georgia + Helvetica, which
-   render everywhere with no webfont fetch. If she names Google Fonts instead,
-   set `branding.google_fonts` to true so the templates load them, and check she
-   is actually licensed for them.
+11. Fonts — most realtors have no opinion until they see options, so offer these
+    by name rather than asking an open question. Default is the first.
+
+    | | Heading | Body | Reads as |
+    |---|---|---|---|
+    | 1 | Playfair Display | Inter | High-contrast editorial. The default. |
+    | 2 | DM Serif Display | DM Sans | Heavier, warmer, friendlier. |
+    | 3 | Fraunces | Jost | More character, less conventional. |
+    | 4 | Georgia | Helvetica | System fonts, no webfont fetch at all. |
+
+    All four are free for commercial use (the first three are SIL Open Font
+    Licence, Georgia and Helvetica ship with the OS). Options 1 to 3 need
+    `branding.google_fonts: true`; option 4 needs it false. If she names her own
+    brand font instead, use it and set the fallback to the closest of the above.
+    If she is on a locked-down network where the render cannot reach Google,
+    choose option 4 — the others degrade to their fallbacks, which works but
+    will not match her brand guide.
 
 **Social and publishing**
 12. Instagram handle plus 1-2 brand hashtags

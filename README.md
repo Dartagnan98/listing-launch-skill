@@ -101,10 +101,15 @@ a URL, not a hex code, not a font. Templates fill `{{agent_name}}`,
 `scripts/realtor-config.js`. Adding a new per-realtor field means adding it
 there, not in a template.
 
-Defaults are deliberately neutral: grey palette, Georgia + Helvetica, no webfont
-fetch. A fresh clone renders unbranded rather than wearing someone else's brand.
-Set `branding.google_fonts` to true to load the configured faces from Google
-Fonts.
+Defaults are deliberately neutral: a grey palette and Playfair Display + Inter,
+so a fresh clone renders unbranded rather than wearing someone else's brand.
+Phase 0 offers four pairings by name (Playfair/Inter, DM Serif/DM Sans,
+Fraunces/Jost, or Georgia/Helvetica for no webfont fetch at all); all are free
+for commercial use.
+
+If the render cannot reach Google Fonts, set `branding.google_fonts` to false --
+every stack falls back to a system face, so graphics still render, just not in
+the configured type.
 
 ```bash
 node scripts/check-setup.js                # what is configured, what is missing

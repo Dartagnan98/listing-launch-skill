@@ -19,7 +19,7 @@
     "timezone": "America/Vancouver"
   },
   "branding": {
-    "_doc": "Neutral placeholders. Replace with the realtor's real palette and type. Every colour and font in the graphic and email templates comes from here -- none are hardcoded.",
+    "_doc": "Neutral placeholders. Replace with the realtor's real palette. Every colour and font in the graphic and email templates comes from here -- none are hardcoded. All suggested fonts are SIL Open Font Licence, free for commercial use. Set google_fonts to false to fall back to system fonts and skip the webfont fetch entirely.",
     "logo_light": "assets/logo-light.png",
     "logo_dark": "assets/logo-dark.png",
     "primary_color": "#1F2933",
@@ -32,11 +32,11 @@
     "surface_alt_color": "#F7F7F7",
     "surface_tint_color": "#EAE9E5",
     "border_color": "#E4E1DC",
-    "heading_font": "Georgia",
+    "heading_font": "Playfair Display",
     "heading_font_fallback": "Georgia, serif",
-    "body_font": "Helvetica",
+    "body_font": "Inter",
     "body_font_fallback": "Helvetica, Arial, sans-serif",
-    "google_fonts": false
+    "google_fonts": true
   },
   "social": {
     "instagram_handle": "examplerealestate",
