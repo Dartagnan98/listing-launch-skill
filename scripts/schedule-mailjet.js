@@ -26,7 +26,7 @@
  *   MAILJET_API_KEY
  *   MAILJET_SECRET_KEY
  *
- * Channel config read from .claude/skills/marketing/config/mailjet-lists.json
+ * Channel config read from .claude/skills/listing-marketing/config/mailjet-lists.json
  * (maps contacts_list_key -> {id, name}).
  *
  * Writes:  <run-dir>/mailjet-drafts.json  {drafts: [{id, status, date, ...}]}
@@ -78,7 +78,7 @@ function driveUrlFromId(id, width = 1600) {
 
 /**
  * Render the per-stage email HTML. The templates live alongside the
- * marketing skill at templates/email-<stage>.html. Placeholders use
+ * listing-marketing skill at templates/email-<stage>.html. Placeholders use
  * {{field}} syntax; optional sections with {{#field}}...{{/field}} render
  * only when the field is truthy. This is a deliberately tiny templating
  * layer — no dependency on mustache or handlebars — because the shape

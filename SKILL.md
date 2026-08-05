@@ -1,18 +1,18 @@
 ---
-name: marketing
+name: listing-marketing
 requires_onboarding: [identity_profile, drive]
 description: >
-  the realtor's full listing-launch marketing campaign, end to end. Use when the
-  user says "launch the new listing", "new listing marketing", "marketing go",
+  A realtor's full listing marketing campaign, end to end. Use when the user
+  says "launch the new listing", "new listing marketing", "marketing go",
   "kick off the campaign", or "photos are in, let's go". One skill, one
   continuous run: collect inputs -> render graphics -> copy -> Buffer ->
   Mailjet -> log. No router, no sub-skills, no handoffs.
 metadata:
   elevate:
-    tags: [real-estate, marketing, listing-launch, workflow]
+    tags: [real-estate, marketing, listing-marketing, workflow]
 ---
 
-# Listing Launch
+# Listing Marketing
 
 **Client**: whichever realtor this install is configured for (`config/realtor.json`)
 **Trigger**: "launch the new listing" / "marketing go" / "photos are in, let's go"
@@ -227,7 +227,7 @@ across three campaign stages, plus a just-sold pair.
 **One command renders all 3 campaigns:**
 
 ```bash
-node .claude/skills/marketing/scripts/render-all.js data/marketing/runs/<run>/inputs.json
+node .claude/skills/listing-marketing/scripts/render-all.js data/marketing/runs/<run>/inputs.json
 ```
 
 That script reads the counter from `data/marketing/counter.json` (or
@@ -258,7 +258,7 @@ Run after render.
 from `inputs.json`. Claude never does timezone math by hand:
 
 ```bash
-node .claude/skills/marketing/scripts/build-posts-skeleton.js data/marketing/runs/<run>
+node .claude/skills/listing-marketing/scripts/build-posts-skeleton.js data/marketing/runs/<run>
 ```
 
 **Timing table (authoritative, all times America/Vancouver, DST-safe):**
@@ -286,7 +286,7 @@ node .claude/skills/marketing/scripts/build-posts-skeleton.js data/marketing/run
 5. Save the completed `posts.json` back to the same path.
 6. **Run the validator before Phase 5/6:**
    ```bash
-   node .claude/skills/marketing/scripts/validate-copy.js data/marketing/runs/<run>
+   node .claude/skills/listing-marketing/scripts/validate-copy.js data/marketing/runs/<run>
    ```
    Exits 0 if all copy is in range with no banned phrases, exits 2 on hard fail,
    writes `copy-validation.json`. Do NOT push to Buffer/Mailjet on hard fail.
@@ -310,7 +310,7 @@ Run after copy passes validation. Buffer GraphQL API at `https://api.buffer.com/
 **One command schedules all 4 posts:**
 
 ```bash
-node .claude/skills/marketing/scripts/schedule-buffer.js data/marketing/runs/<run>
+node .claude/skills/listing-marketing/scripts/schedule-buffer.js data/marketing/runs/<run>
 ```
 
 Flags:
@@ -345,13 +345,13 @@ API, HTTP Basic `MAILJET_API_KEY:MAILJET_SECRET_KEY`.
 
 ```bash
 # Schedule for real against scheduled_at_iso:
-node .claude/skills/marketing/scripts/schedule-mailjet.js data/marketing/runs/<run>
+node .claude/skills/listing-marketing/scripts/schedule-mailjet.js data/marketing/runs/<run>
 
 # Draft only (no /schedule call) — for dry runs and the first test send:
-node .claude/skills/marketing/scripts/schedule-mailjet.js data/marketing/runs/<run> --draft
+node .claude/skills/listing-marketing/scripts/schedule-mailjet.js data/marketing/runs/<run> --draft
 
 # Fire a test send to one address after schedule:
-node .claude/skills/marketing/scripts/schedule-mailjet.js data/marketing/runs/<run> --test you@example.com
+node .claude/skills/listing-marketing/scripts/schedule-mailjet.js data/marketing/runs/<run> --test you@example.com
 ```
 
 The just-listed email CTA button points at the realtor's website
@@ -374,7 +374,7 @@ Expected output: `mailjet-drafts.json`.
 Run after Buffer and Mailjet complete or partially complete.
 
 ```bash
-node .claude/skills/marketing/scripts/log-marketing-launch.js data/marketing/runs/<run>
+node .claude/skills/listing-marketing/scripts/log-marketing-launch.js data/marketing/runs/<run>
 # optional:
 #   --lead-id <N>   post a Lofty note against this lead
 #   --no-lofty      skip the Lofty note entirely

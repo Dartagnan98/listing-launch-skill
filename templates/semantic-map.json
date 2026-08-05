@@ -1,5 +1,5 @@
 {
-  "_doc": "Maps raw Templated layer names to canonical field names used by the marketing skill. Null means the layer is static/decorative (keep sample content). Layer names are case-sensitive and include typos from the original Templated designs (e.g. 'Secdonary Feature', 'INterior feature', 'Main Image URl').",
+  "_doc": "Maps raw Templated layer names to canonical field names used by the listing-marketing skill. Null means the layer is static/decorative (keep sample content). Layer names are case-sensitive and include typos from the original Templated designs (e.g. 'Secdonary Feature', 'INterior feature', 'Main Image URl').",
 
   "main_photo": [
     "Main Exterior Photo URL",

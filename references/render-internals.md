@@ -45,7 +45,7 @@ for consistency across a paired campaign.
    `<name>.layers.json` to `templates/source/`.
 2. Extend `templates/semantic-map.json` with any new layer names (check whether
    they map to existing canonicals or need a new one).
-3. Run `python3 .claude/skills/marketing/scripts/templated-to-html.py <name>`
+3. Run `python3 .claude/skills/listing-marketing/scripts/templated-to-html.py <name>`
    to regenerate the standalone HTML.
 4. Render-test with `data/marketing/test-<stage>.json` fixture before using in
    production.

@@ -21,7 +21,7 @@
  *   BUFFER_TOKEN               OIDC token from Buffer Publish > Account > Apps
  *   LISTING_DRIVE_PARENT       Drive folder to stage graphics (fallback: drive.listing_parent in config/realtor.json)
  *
- * Channel config read from .claude/skills/marketing/config/buffer-channels.json.
+ * Channel config read from .claude/skills/listing-marketing/config/buffer-channels.json.
  * posts.json `platforms: ["instagram", "facebook"]` maps to the brand-scoped
  * channels -- defaults to default_listing_targets in config/buffer-channels.json. Override per-post
  * with `channels: ["primary_ig", "secondary_ig"]` or similar.
@@ -32,7 +32,7 @@
  *
  * Failure handling: per SKILL.md "don't abort the pipeline" rule, a Buffer
  * rejection for one (post, channel) pair is recorded as status=failed and the
- * script exits 0 so step 5 (emails) can still run.
+ * script exits 0 so Phase 5 (emails) can still run.
  */
 const fs = require('fs');
 const realtorConfig = require('./realtor-config');
@@ -144,7 +144,7 @@ async function createPost({ token, channelId, service, text, imageUrl, dueAtIso,
     mode: 'customScheduled',         // always customScheduled -- we compute dueAt from posts.json
     dueAt: dueAtIso,
     assets: { images: [{ url: imageUrl }] },
-    source: 'marketing-skill',
+    source: 'listing-marketing',
     saveToDraft: !!saveToDraft,      // when true, lands in Drafts folder with the same dueAt as target
   };
   const metadata = buildMetadata(service);

@@ -67,7 +67,7 @@ async function main() {
   // renders empty placeholders. `lh3.googleusercontent.com/d/<id>=w<px>` is the
   // direct CDN form that returns image bytes. Works after a single
   // `gws drive permissions create` with role:reader type:anyone.
-  // Lesson: 2026-04-20 in marketing/lessons.md.
+  // Lesson: 2026-04-20 in listing-marketing/lessons.md.
   function rewriteDriveUrl(value) {
     if (typeof value !== 'string') return value;
     const driveIdMatch = value.match(

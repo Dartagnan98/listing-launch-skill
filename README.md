@@ -1,4 +1,4 @@
-# Listing Launch (`marketing` skill)
+# Listing Marketing
 
 A Claude skill that runs a realtor's full listing-launch campaign end to end, in
 one continuous run: collect inputs -> render graphics -> write copy ->
@@ -10,10 +10,10 @@ Replaces a 92-node Zapier zap plus its intake Google Form.
 
 ## Install
 
-Drop this directory into the host repo as `.claude/skills/marketing/`:
+Drop this directory into the host repo as `.claude/skills/listing-marketing/`:
 
 ```bash
-git clone <this-repo> .claude/skills/marketing
+git clone <this-repo> .claude/skills/listing-marketing
 ```
 
 `SKILL.md` is the runbook. Read it top to bottom -- it is the whole pipeline.
