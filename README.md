@@ -73,8 +73,18 @@ LISTING_DRIVE_PARENT  optional, overrides drive.listing_parent in config/realtor
 ```
 
 None of these have defaults and none are stored in this repo. Put them in the
-host repo's `.env` (gitignored) or export them in the shell before a run. Every
-script that needs one fails loudly by name if it is missing.
+host repo's `.env` (gitignored) or export them in the shell before a run. Phase 0
+walks you through generating each one and tells you the exact line to paste, but
+you paste the value yourself -- the skill never asks for a token in conversation,
+never echoes one back, and never writes one to a file.
+
+Check what is set at any time:
+
+```bash
+node scripts/check-setup.js
+```
+
+It reports each credential as present or missing, never the value.
 
 Also needs: the `gws` CLI logged in with Drive + Docs scopes, and Playwright.
 
@@ -97,6 +107,7 @@ Set `branding.google_fonts` to true to load the configured faces from Google
 Fonts.
 
 ```bash
+node scripts/check-setup.js                # what is configured, what is missing
 node scripts/realtor-config.js --check     # validate the config shape
 node scripts/schedule-buffer.js --list-channels   # get Buffer channel IDs
 ```

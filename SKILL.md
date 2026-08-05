@@ -139,12 +139,22 @@ Then write the answers to `config/realtor.json` — schema and field names are i
 `config/realtor.example.json`. Copy the logos into `assets/`. Read the whole
 config back in plain language and get a yes before continuing.
 
-**Never ask for a token, key, or password.** The env vars listed above are not
-Phase 0 questions and never appear in this conversation. If one is missing, name
-the variable, say where it comes from (Buffer Publish > Account > Apps, the
-Mailjet API keys page), and tell the realtor to put it in the host repo's `.env`
-or export it in her shell herself. Do not offer to store it, echo it back, or
-write it into any config file in this skill.
+**Credentials: guide, never handle.** The skill needs `BUFFER_TOKEN`,
+`MAILJET_API_KEY` and `MAILJET_SECRET_KEY` to schedule anything, so Phase 0 does
+have to get them in place — but the values never enter this conversation. For
+each missing one, tell the realtor exactly where to generate it and give her the
+line to paste into the host repo's `.env`:
+
+```
+BUFFER_TOKEN=
+MAILJET_API_KEY=
+MAILJET_SECRET_KEY=
+```
+
+Buffer: Publish > Account > Apps > Create Access Token. Mailjet: Account > API
+Key Management. She pastes the values in herself and saves. Then re-run the
+preflight below to confirm they landed. Never ask her to type a token into chat,
+never echo one back, never write one into a config file in this skill.
 
 **Then the two channel configs.** Copy `config/buffer-channels.example.json` and
 `config/mailjet-lists.example.json` to their non-example names and fill in real
@@ -160,6 +170,22 @@ If `docs/voice/realtor-profile.md` exists at the host repo root, mine it for
 signature phrases, banned phrases, and emoji habits and fill them in. If it does
 not, tell the realtor the copy will be competent but not yet in her voice, and
 that the fix is a profile built from a sample of her real outgoing messages.
+
+**Then verify the whole install before declaring setup done:**
+
+```bash
+node .claude/skills/listing-marketing/scripts/check-setup.js
+```
+
+It reports every config file, the logo, each credential (present or missing
+only, never the value), the `gws` CLI and Playwright. Walk the realtor through
+anything it flags, then run it again. Repeat until it prints `Setup complete`,
+or until she explicitly says to carry on without a given piece.
+
+If credentials are still missing when she wants to proceed, say plainly which
+phases will not run: Phases 1 to 3 (inputs, graphics, copy) work with no
+credentials at all; Phase 4 needs `BUFFER_TOKEN`, Phase 5 needs the two Mailjet
+keys. Never let a run reach Phase 4 assuming a token exists.
 
 Setup is done. Go straight into Phase 1 in the same run — do not make her ask
 twice.
