@@ -4,7 +4,8 @@ A Claude skill that runs a realtor's full listing-launch campaign end to end, in
 one continuous run: collect inputs -> render graphics -> write copy ->
 schedule Buffer -> schedule Mailjet -> log the run.
 
-Trigger phrases: "launch the new listing", "marketing go", "photos are in, let's go".
+Invoked as `/listing-marketing`, or by saying "listing marketing", "launch the
+new listing", "marketing go", or "photos are in, let's go".
 
 Replaces a 92-node Zapier zap plus its intake Google Form.
 

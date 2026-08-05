@@ -3,10 +3,10 @@ name: listing-marketing
 requires_onboarding: [identity_profile, drive]
 description: >
   A realtor's full listing marketing campaign, end to end. Use when the user
-  says "launch the new listing", "new listing marketing", "marketing go",
-  "kick off the campaign", or "photos are in, let's go". One skill, one
-  continuous run: collect inputs -> render graphics -> copy -> Buffer ->
-  Mailjet -> log. No router, no sub-skills, no handoffs.
+  says "listing marketing", "launch the new listing", "new listing marketing",
+  "marketing go", "kick off the campaign", or "photos are in, let's go". One
+  skill, one continuous run: collect inputs -> render graphics -> copy ->
+  Buffer -> Mailjet -> log. No router, no sub-skills, no handoffs.
 metadata:
   elevate:
     tags: [real-estate, marketing, listing-marketing, workflow]
@@ -15,7 +15,8 @@ metadata:
 # Listing Marketing
 
 **Client**: whichever realtor this install is configured for (`config/realtor.json`)
-**Trigger**: "launch the new listing" / "marketing go" / "photos are in, let's go"
+**Trigger**: `/listing-marketing`, or "listing marketing" / "launch the new
+listing" / "marketing go" / "photos are in, let's go"
 
 This is one linear runbook. Work it top to bottom for a full listing launch. Do
 not stop between phases to "hand off" — there are no sub-skills and no handoff
